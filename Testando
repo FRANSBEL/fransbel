@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRANSBEL - Maquiagem</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>FRANSBEL</h1>
+    <p>Beleza e confiança em cada detalhe</p>
+</header>
+
+<nav>
+    <a href="#home">Início</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#contato">Contato</a>
+    <a href="#sobre">Sobre</a>
+</nav>
+
+<div class="container" id="produtos">
+    <h2>Produtos</h2>
+    <div class="product-list">
+        <div class="product" data-id="1" data-name="Protetor Solar com Filtro" data-price="49.99">
+            <img src="https://via.placeholder.com/300" alt="Protetor Solar">
+            <h3>Protetor Solar com Filtro</h3>
+            <p>Protege sua pele contra os raios UV com alta proteção.</p>
+            <p class="price">R$ 49,99</p>
+            <button onclick="addToCart(1)">Adicionar ao Carrinho</button>
+        </div>
+        <div class="product" data-id="2" data-name="Blush Líquido" data-price="39.99">
+            <img src="https://via.placeholder.com/300" alt="Blush Líquido">
+            <h3>Blush Líquido</h3>
+            <p>Para um efeito natural e radiante.</p>
+            <p class="price">R$ 39,99</p>
+            <button onclick="addToCart(2)">Adicionar ao Carrinho</button>
+        </div>
+        <div class="product" data-id="3" data-name="Gloss" data-price="29.99">
+            <img src="https://via.placeholder.com/300" alt="Gloss">
+            <h3>Gloss</h3>
+            <p>Deixa seus lábios brilhantes e hidratados.</p>
+            <p class="price">R$ 29,99</p>
+            <button onclick="addToCart(3)">Adicionar ao Carrinho</button>
+        </div>
+        <div class="product" data-id="4" data-name="Paleta de Sombras" data-price="89.99">
+            <img src="https://via.placeholder.com/300" alt="Paleta de Sombras">
+            <h3>Paleta de Sombras</h3>
+            <p>Para criar looks incríveis para qualquer ocasião.</p>
+            <p class="price">R$ 89,99</p>
+            <button onclick="addToCart(4)">Adicionar ao Carrinho</button>
+        </div>
+        <div class="product" data-id="5" data-name="Paleta de Contorno" data-price="99.99">
+            <img src="https://via.placeholder.com/300" alt="Paleta de Contorno">
+            <h3>Paleta de Contorno</h3>
+            <p>Para modelar e realçar os contornos do rosto.</p>
+            <p class="price">R$ 99,99</p>
+            <button onclick="addToCart(5)">Adicionar ao Carrinho</button>
+        </div>
+        <div class="product" data-id="6" data-name="Perfume" data-price="149.99">
+            <img src="https://via.placeholder.com/300" alt="Perfume">
+            <h3>Perfume</h3>
+            <p>Uma fragrância única e marcante.</p>
+            <p class="price">R$ 149,99</p>
+            <button onclick="addToCart(6)">Adicionar ao Carrinho</button>
+        </div>
+    </div>
+</div>
+
+<div class="cart">
+    <h3>Carrinho de Compras</h3>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="total" id="cart-total">Total: R$ 0,00</div>
+    <button onclick="checkout()">Finalizar Compra</button>
+</div>
+
+<footer>
+    <p>&copy; 2024 FRANSBEL. Todos os direitos reservados.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #6a4c9c; /* Lilás */
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 36px;
+    margin: 0;
+}
+
+nav {
+    background-color: #6a4c9c;
+    text-align: center;
+    padding: 10px 0;
+}
+
+nav a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 0 15px;
+}
+
+nav a:hover {
+    background-color: #543a7b;
+    border-radius: 5px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.product {
+    width: 30%;
+    margin-bottom: 30px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.product h3 {
+    color: #6a4c9c;
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+.product p {
+    color: #333;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.product .price {
+    font-size: 18px;
+    color: #6a4c9c;
+}
+
+.product button {
+    background-color: #6a4c9c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.product button:hover {
+    background-color: #543a7b;
+}
+
+.cart {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.cart h3 {
+    font-size: 24px;
+    color: #6a4c9c;
+}
+
+.cart-items {
+    margin: 20px 0;
+}
+
+.cart-items p {
+    font-size: 18px;
+}
+
+.cart .total {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+footer {
+    background-color: #6a4c9c;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+let cart = [];
+
+function addToCart(productId) {
+    const productElement = document.querySelector(`.product[data-id='${productId}']`);
+    const productName = productElement.dataset.name;
+    const productPrice = parseFloat(productElement.dataset.price);
+
+    // Verifica se o produto já está no carrinho
+    const existingProductIndex = cart.findIndex(item => item.name === productName);
+    
+    if (existingProductIndex > -1) {
+        // Se o produto já estiver no carrinho, aumenta a quantidade
+        cart[existingProductIndex].quantity += 1;
+    } else {
+        // Se o produto não estiver no carrinho, adiciona ele com quantidade 1
+        cart.push({ name: productName, price: productPrice, quantity: 1 });
+    }
+
+    updateCart();
+}
+
+function updateCart() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    cartItemsContainer.innerHTML = '';
+    
+    let totalPrice = 0;
+    
+    cart.forEach(item => {
+        const itemElement = document.createElement('p');
+        itemElement.textContent = `${item.name} x${item.quantity} - R$ ${(item.price * item.quantity).toFixed(2)}`;
+        cartItemsContainer.appendChild(itemElement);
+        totalPrice += item.price * item.quantity;
+    });
+
+    cartTotal.textContent = `Total: R$ ${totalPrice.toFixed(2)}`;
+}
+
+function checkout() {
+    alert('Compra finalizada! Em breve você receberá as instruções de pagamento.');
+    cart = [];  // Limpa o carrinho após a compra
+    updateCart();  // Atualiza a visualização do carrinho
+}
